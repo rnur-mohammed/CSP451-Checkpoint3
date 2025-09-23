@@ -8,6 +8,8 @@ export default [
   prettier,
   {
     ignores: ["dist", "coverage", "node_modules", "jest.config.js"],
+  },
+  {
     files: ["**/*.ts", "**/*.js"],
     languageOptions: {
       parser: tsParser,
@@ -16,15 +18,18 @@ export default [
       globals: {
         require: "readonly",
         module: "readonly",
+        exports: "readonly",
         console: "readonly",
         describe: "readonly",
         it: "readonly",
-        expect: "readonly"
-      }
+        expect: "readonly",
+      },
     },
-    plugins: { "@typescript-eslint": tsPlugin },
+    plugins: {
+      "@typescript-eslint": tsPlugin,
+    },
     rules: {
-      "@typescript-eslint/no-require-imports": "off"
-    }
-  }
+      "@typescript-eslint/no-unused-vars": ["warn"],
+    },
+  },
 ];
