@@ -4,7 +4,7 @@
     "target": "ES2020",
     "module": "commonjs",
     "lib": ["es2020"],
-    "types": ["node"],
+    "types": ["node", "jest"],
 
     /* File Locations */
     "rootDir": "./src",
@@ -17,14 +17,12 @@
     /* Strictness */
     "strict": true,
 
-    /* Source Maps for debugging */
+    /* Source Maps */
     "sourceMap": true,
 
-    /* Declarations (optional, not required for this project but good practice) */
+    /* Declarations */
     "declaration": true,
     "declarationMap": true
   },
-
-  /* Exclude tests and build outputs */
   "exclude": ["node_modules", "dist", "__tests__"]
 }
