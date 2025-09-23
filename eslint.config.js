@@ -8,36 +8,23 @@ export default [
   prettier,
   {
     ignores: ["dist", "coverage", "node_modules", "jest.config.js"],
-  },
-  {
     files: ["**/*.ts", "**/*.js"],
     languageOptions: {
       parser: tsParser,
       ecmaVersion: "latest",
       sourceType: "module",
       globals: {
-        node: true,
-        require: true,
-        module: true,
-        console: true,
-        exports: true,
-      },
+        require: "readonly",
+        module: "readonly",
+        console: "readonly",
+        describe: "readonly",
+        it: "readonly",
+        expect: "readonly"
+      }
     },
-    plugins: {
-      "@typescript-eslint": tsPlugin,
-    },
+    plugins: { "@typescript-eslint": tsPlugin },
     rules: {
-      ...tsPlugin.configs.recommended.rules,
-    },
-  },
-  {
-    files: ["__tests__/**/*.{ts,js}"],
-    languageOptions: {
-      globals: {
-        describe: true,
-        it: true,
-        expect: true,
-      },
-    },
-  },
+      "@typescript-eslint/no-require-imports": "off"
+    }
+  }
 ];
