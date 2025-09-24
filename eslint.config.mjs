@@ -1,33 +1,18 @@
 import js from "@eslint/js";
-import prettier from "eslint-config-prettier";
-import tsParser from "@typescript-eslint/parser";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
+import globals from "globals";
 
 export default [
   js.configs.recommended,
-  prettier,
   {
-    ignores: ["dist", "coverage", "node_modules"],
-  },
-  {
-    files: ["**/*.ts", "**/*.js"],
     languageOptions: {
-      parser: tsParser,
       ecmaVersion: "latest",
       sourceType: "module",
       globals: {
-        node: true,
-        require: true,
-        module: true,
-        console: true,
-        describe: true,
-        it: true,
-        expect: true,
+        ...globals.node,
+        ...globals.jest,   // ✅ adds test, expect, describe
       },
     },
-    plugins: { "@typescript-eslint": tsPlugin },
-    rules: {
-      "@typescript-eslint/no-unused-vars": "warn",
-    },
+    rules: {},
   },
 ];
+
