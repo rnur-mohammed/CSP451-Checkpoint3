@@ -4,7 +4,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && cp -r public/* dist/",
+    "build": "tsc && mkdir -p dist && cp -r public/* dist/ || echo 'no public folder'"
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
