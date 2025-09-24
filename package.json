@@ -1,6 +1,7 @@
 {
   "name": "csp451-checkpoint3",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "tsc && cp -r public/* dist/",
