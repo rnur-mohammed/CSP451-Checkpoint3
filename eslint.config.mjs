@@ -1,4 +1,3 @@
-// eslint.config.mjs
 import js from "@eslint/js";
 import prettier from "eslint-config-prettier";
 import tsParser from "@typescript-eslint/parser";
@@ -8,7 +7,7 @@ export default [
   js.configs.recommended,
   prettier,
   {
-    ignores: ["dist", "coverage", "node_modules"],
+    ignores: ["dist", "coverage", "node_modules", "jest.config.cjs"],
   },
   {
     files: ["**/*.ts", "**/*.js"],
@@ -17,9 +16,13 @@ export default [
       ecmaVersion: "latest",
       sourceType: "module",
       globals: {
-        console: "readonly",
-        require: "readonly",
-        module: "readonly",
+        node: true,
+        require: true,
+        module: true,
+        console: true,
+        describe: true,
+        it: true,
+        expect: true,
       },
     },
     plugins: {
@@ -27,17 +30,7 @@ export default [
     },
     rules: {
       "@typescript-eslint/no-unused-vars": "warn",
-      "@typescript-eslint/no-explicit-any": "off",
-    },
-  },
-  {
-    files: ["**/__tests__/**/*.ts", "**/*.test.ts"],
-    languageOptions: {
-      globals: {
-        describe: "readonly",
-        it: "readonly",
-        expect: "readonly",
-      },
+      "no-console": "off",
     },
   },
 ];
