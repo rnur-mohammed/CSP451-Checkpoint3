@@ -8,11 +8,9 @@ import globals from "globals";
 export default [
   js.configs.recommended,
   prettier,
-
   {
     ignores: ["dist", "coverage", "node_modules", "jest.config.cjs"],
   },
-
   {
     files: ["**/*.ts", "**/*.js"],
     languageOptions: {
@@ -31,7 +29,6 @@ export default [
       "@typescript-eslint/no-explicit-any": "off",
     },
   },
-
   {
     files: ["**/__tests__/**/*.ts", "**/*.test.{ts,js}"],
     languageOptions: {
